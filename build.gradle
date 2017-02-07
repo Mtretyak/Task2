@@ -1,0 +1,49 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'AccountRestService'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven {
+		url 'https://repo.spring.io/libs-snapshot'
+	}
+}
+
+
+
+dependencies {
+	compile 'org.springframework:spring-context:4.3.6.RELEASE'
+	compile 'org.projectlombok:lombok:1.16.12'
+	compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile 'org.springframework.security:spring-security-web:4.2.2.BUILD-SNAPSHOT'
+}
+/*	compile 'org.springframework:spring-context:4.3.6.RELEASE'
+
+
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+	testCompile("junit:junit")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile 'org.springframework.security:spring-security-web:4.2.2.BUILD-SNAPSHOT'
+	compile('org.springframework.boot:spring-boot-starter')*/
