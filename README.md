@@ -1,7 +1,7 @@
 # Task2
 bash commands:
 gradle clean build
-java -jar build/libs/AccountRestService-0.0.1-SNAPSHOT.jar.original
+java -jar build/libs/AccountRestService-0.0.1-SNAPSHOT.jar
 
 Будет запущен сервис, который принимает запросы на http://localhost:8080 и отвечает на них
 
