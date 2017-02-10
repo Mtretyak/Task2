@@ -22,7 +22,7 @@ public class AccountRestController {
         if (account != null) {
             return ResponseEntity.ok(account);
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No such email");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No such email");
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -30,7 +30,7 @@ public class AccountRestController {
         if (accountRepository.addAccount(account)) {
             return ResponseEntity.ok("ok");
         }
-        return ResponseEntity.status(HttpStatus.CONFLICT).body("This email already exists");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email already exists");
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
@@ -38,6 +38,6 @@ public class AccountRestController {
         if (accountRepository.deleteAccount(email)) {
             return ResponseEntity.ok("ok");
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("This account doesn't exist");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("This account doesn't exist");
     }
 }
